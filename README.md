@@ -32,7 +32,7 @@ class speech_to_text:
             pass
 
 ## 6
-
+# In this module, your input arguments are user's prompt and the chat history, and the goal is to generate good stories by using openai api.
 class OpenAIGenerator:
     def __init__(self, model_name: str, api_key: str):
         openai.api_key = api_key
@@ -62,7 +62,9 @@ class TextToSpeech:
         pass
 
 ## 9
-
+# In this module, you need to use mongoDB to create a database for books.
+# Each book has its corresponding table.
+# The format of the element of the collections are : {page : page_number, content : the text content of this page, picture_idx : the index of the picture corresponding to the story in this page.}
 # MongoDB
 import pymongo
 
