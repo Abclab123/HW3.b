@@ -1,5 +1,3 @@
-Certainly! Here's the content in plain text:
-
 ```
 # Project Name: GenAI Toolbox
 
