@@ -64,7 +64,7 @@ class TextToSpeech:
 ## 9
 # In this module, you need to use mongoDB to create a database for books.
 # Each book has its corresponding table.
-# The format of the element of the collections are : {page : page_number, content : the text content of this page, picture_idx : the index of the picture corresponding to the story in this page.}
+# The format of the elements of the collections are : {page : page_number, content : the text content of this page, picture_idx : the index of the picture corresponding to the story in this page.}
 # MongoDB
 import pymongo
 
