@@ -33,8 +33,10 @@ class speech_to_text:
 
 ## 6
 # In this module, your input arguments are user's prompt and the chat history, and the goal is to generate good stories by using openai api.
+# Utilize the system prompt to ingeniously guide your GPT in crafting a creative narrative with a compelling plot twist.
+
 class OpenAIGenerator:
-    def __init__(self, model_name: str, api_key: str):
+    def __init__(self, api_key: str):
         openai.api_key = api_key
 
     def generate(self, user_input: str, history: list = []) -> str:
