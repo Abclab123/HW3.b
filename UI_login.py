@@ -1,5 +1,5 @@
 import psycopg2
-import streamlit
+import streamlit as st
 import string
 import random
 import hashlib
@@ -87,4 +87,26 @@ class UI_login:
 
 
     def UI(self):
-        pass
+        st.title('Login')
+
+        username = st.text_input('Username')
+        password = st.text_input('Password', type='password')
+
+        login_button = st.button('Login')
+        signup_button = st.button('Signup')
+
+        if login_button:
+            if self.__login(username, password):
+                st.write('login success')
+                pass
+            else:
+                st.write('login failed')
+                pass
+
+        elif signup_button:
+            if self.__signup(username, password):
+                st.write('signup success')
+                pass
+            else:
+                st.write('signup failed')
+                pass
