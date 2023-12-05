@@ -9,10 +9,10 @@ class PineconeInterface:
     def __init__(self, api_key, index_name, create=True):
         pinecone.init(api_key=api_key, environment="gcp-starter")
         self.index = pinecone.Index(index_name)
-        # print(self.index)
+        
         if index_name not in self.list_indexes() and create:
             self.create_index(index_name)
-        # pinecone.create_index()
+        
 
     def insert_vector(self, vector_id, vector_data):
         return self.index.upsert(vectors=[(vector_id, vector_data)])
