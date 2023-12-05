@@ -1,3 +1,25 @@
+# Pinecone Interface
+## Getting started
+Create a [Pinecone](https://www.pinecone.io/) account first. Get your API key and modify `API_KEY` variable in main.py.
+```
+# insert API key here 
+API_KEY = ""
+```
+
+Create conda or venv, and install requirements.txt
+```
+conda create -n cone python=3.11
+conda activate cone 
+pip install -r requirements.txt
+```
+
+## Running the code 
+```
+python main.py
+```
+
+--- 
+
 ```
 # Project Name: GenAI Toolbox
 
