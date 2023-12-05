@@ -11,7 +11,8 @@ class speech_to_text:
         self.online = online
         self.language = language
 
-    def record(self, input_audio: str, output_file_id: int) -> str:
+    def record(self, output_file_id: int) -> str:
+        input_audio = str(output_file_id) + ".mp3"
         if self.online:
             openai.api_key = os.getenv("OPENAI_API_KEY")
 
