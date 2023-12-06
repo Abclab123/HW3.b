@@ -1,3 +1,15 @@
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## How to run
+
+```bash
+python ImageGenerator.py 
+```
+
 ```
 # Project Name: GenAI Toolbox
 
