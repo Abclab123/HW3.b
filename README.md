@@ -1,3 +1,15 @@
+# build environment
+```bash
+# pip install openai
+# pip install faster-whisper
+```
+
+please add "OPENAI_API_KEY" to your environment variables.
+```bash
+# linux
+export OPENAI_API_KEY={'your_api_key'} # add this line to ~/.bashrc
+```
+
 ```
 # Project Name: GenAI Toolbox
 
