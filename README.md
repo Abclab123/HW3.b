@@ -81,6 +81,10 @@ class BooksDB:
     def append(bookname: str, picture_idx: int, content: str):
         pass
 
+    def get_book_content(bookname:str):
+        #return a list of dictionaries [{page : page_number, content:"page 0 text",pic_id: page 0 picture id(int)},{page : page_number, content:"page 1 text",pic_id: page 1 picture id(int)},{page : page_number, content:"page 2 text",pic_id: page 2 picture id(int)},...]
+        pass
+
 ## 10
 
 class PineconeInterface:
