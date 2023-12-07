@@ -1,8 +1,8 @@
 import random
 from sentence_transformers import SentenceTransformer
 import streamlit as st
-# from somewhere import PineconeInterface
 from time import sleep
+# from somewhere import PineconeInterface
 
 # NOTE: dummy PineconeInterface
 class PineconeInterface:
@@ -27,24 +27,20 @@ class UI_search:
         self.pinecone = PineconeInterface('dummy api key', 'dummy index name')
 
     def UI(self):
+        placeholder = f'  {self.random_placeholder()}'
         with st.chat_message('ai'):
             st.write('Please tell me what kind of story would you like to read?')
+            st.write(f'For example: "{placeholder}"')
 
-        if 'query' in st.session_state:
-            with st.chat_message('user'):
-                st.write(st.session_state['query'])
-
-        if query := st.chat_input(f'  {self.random_placeholder()}'):
-            st.session_state['query'] = query
-
-            with st.chat_message('user'):
-                st.write(query)
+        if query := st.chat_input():
+            st.chat_message('user').write(query)
 
             with st.chat_message('ai'):
                 with st.spinner('Finding...'):
                     self.search(query)
 
                 st.write('These stories are probably what you want.')
+                sleep(1)
                 for i, story in enumerate(self.result):
                     st.info(f'#### Story {i+1}\n{story}')
 
