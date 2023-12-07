@@ -14,7 +14,6 @@ class UI_login:
             host='ws3.csie.ntu.edu.tw',
             port='5433')
 
-
     def __login(self, username, password) -> bool:
         sql = f'''SELECT * FROM users
                   WHERE username = %s;'''
@@ -53,7 +52,6 @@ class UI_login:
 
         return True
 
-
     def __signup(self, username, password) -> bool:
         sql = f'''INSERT INTO users (
                       username, password_salt, password_hash)
@@ -85,8 +83,22 @@ class UI_login:
 
         return True
 
+    def welcome_page(self):
+        st.title('Welcome')
 
-    def UI(self):
+        gen_button = st.button('Gen')
+        search_button = st.button('Search')
+
+        if gen_button:
+            # maybe use method in login_page and UI?
+            # set some variable in st.session_state
+            # and rerun to go to ui gen
+            pass
+
+        elif search_button:
+            pass
+
+    def login_page(self):
         st.title('Login')
 
         username = st.text_input('Username')
@@ -97,19 +109,26 @@ class UI_login:
 
         if login_button:
             if self.__login(username, password):
-                st.write('login success')
-                pass
+                st.session_state.logged_in = True
+                st.rerun()
             else:
                 st.write('login failed')
-                pass
 
         elif signup_button:
             if self.__signup(username, password):
                 st.write('signup success')
-                pass
             else:
-                st.write('signup failed')
-                pass
+                st.write('username exists')
+
+    def UI(self):
+        if "logged_in" not in st.session_state:
+            st.session_state.logged_in = False
+
+        # decide which page to go
+        if st.session_state.logged_in:
+            self.welcome_page()
+        else:
+            self.login_page()
 
 
 if __name__ == '__main__':
