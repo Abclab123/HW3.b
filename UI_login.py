@@ -110,3 +110,7 @@ class UI_login:
             else:
                 st.write('signup failed')
                 pass
+
+
+if __name__ == '__main__':
+    UI_login().UI()
