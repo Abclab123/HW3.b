@@ -26,7 +26,7 @@ if __name__ == "__main__":
     #init api_key
     config = configparser.ConfigParser()
     config.read('config.ini')
-    openai_generator = Fine_tuner(config["OpenAI"]["api_key"])
+    fine_tuner= Fine_tuner(config["OpenAI"]["api_key"])
     
     #jsonl example
     data_list = [
@@ -543,4 +543,4 @@ if __name__ == "__main__":
         jsonl_file.write_all(data_list)
     
     #fine-tune
-    Fine_tuner.fine_tune("data.jsonl", "davinci-002")
+    fine_tuner.fine_tune("data.jsonl", "davinci-002")
