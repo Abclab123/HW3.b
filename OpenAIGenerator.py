@@ -16,7 +16,7 @@ class OpenAIGenerator:
             messages.append({"role": role, "content": message})
         messages.append({"role": "user", "content": user_input})
 
-        response = openai.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=messages,
             temperature=0.7,
