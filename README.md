@@ -92,7 +92,7 @@ class PineconeInterface:
         pinecone.init(api_key=api_key)
         self.index = pinecone.Index(index_name)
 
-    def insert_vector(self, book_id, book_data):
+    def insert_vector(self, bookname, book_data):
         #Do embedding here!
         self.index.upsert(items=[(vector_id, vector_data)])
 
