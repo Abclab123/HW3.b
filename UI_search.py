@@ -1,5 +1,4 @@
 import random
-from sentence_transformers import SentenceTransformer
 import streamlit as st
 from time import sleep
 # from somewhere import PineconeInterface
@@ -23,7 +22,6 @@ class UI_search:
         self.query = None
         self.result = []
 
-        self.model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
         self.pinecone = PineconeInterface('dummy api key', 'dummy index name')
 
     def UI(self):
@@ -55,8 +53,7 @@ class UI_search:
     def search(self, keyword: str) -> list:
         if keyword == '':
             return
-        embedding = self.model.encode(keyword)
-        self.result = self.pinecone.search_vectors(embedding)
+        self.result = self.pinecone.search_vectors(keyword)
 
 # the followings won't be executed if this file is imported as a module
 if __name__ == '__main__':
