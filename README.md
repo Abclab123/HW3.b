@@ -10,6 +10,8 @@ UI_gen
 
 UI_read
 
+test: `streamlit run UI/UI_read.py`
+
 ## 3: Search the vector store
 
 UI_search
