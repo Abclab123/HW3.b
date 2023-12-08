@@ -7,4 +7,8 @@ Members: 周宥名(r10921a20) 侯東興(r11922121) 林奕丞(r12922157) 許綾�
 * the_little_mermaid.jsonl: 73 prompt story pair, originally written by [Hans Christian Andersen](http://stenzel.ucdavis.edu/180/anthology/mermaid.html)
 * Harmony's Serenade.json: 20 prompt story pair, originally written by [ChatGPT](https://chat.openai.com/)
 * Whispers of the Enchanted Grove.json: 13 prompt story pair, originally written by [ChatGPT](https://chat.openai.com/)
+* comedian_and_love.jsonl: 23 prompt story pair
+* Dr.Lin_rush_with500_smartmonkeys.jsonl: 36 prompt story pair
+* magician_winning_1000games.jsonl: 50 prompt story pair
+* The_Enchanted_Cafe.jsonl: 19 prompt story pair
 
