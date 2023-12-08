@@ -97,6 +97,7 @@ class PineconeInterface:
         self.index.upsert(items=[(vector_id, vector_data)])
 
     def search_vectors(self, query_vector, top_k=5):
+        # Return a list containing top_k bookname
         pass
 
 ## 11: Putting it all together.
