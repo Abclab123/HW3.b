@@ -1,20 +1,15 @@
 import random
 import streamlit as st
 from time import sleep
+# TODO: remember to import the real PineconeInterface
 # from somewhere import PineconeInterface
 
-# NOTE: dummy PineconeInterface
+# NOTE: this is just a dummy; should be removed latter
 class PineconeInterface:
     def __init__(self, api_key, index_name):
         pass
     def search_vectors(self, query_vector, top_k=5):
-        return [
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eros tellus, scelerisque eu rhoncus nec, mollis a mi. Sed sit amet aliquam diam, et semper augue. Ut vel feugiat ante. Nulla dictum nulla elementum, laoreet erat quis, vulputate elit. Phasellus in consectetur neque. Cras facilisis aliquet mauris sed hendrerit. Fusce erat neque, rhoncus ut consectetur ac, aliquam id urna.',
-            'Etiam posuere purus et tortor luctus, vitae interdum metus pharetra. Sed quis ante non est placerat pharetra. Curabitur non hendrerit nisl. Praesent sit amet ipsum vitae urna suscipit varius sed ac sem. Suspendisse diam nunc, eleifend lobortis eleifend ut, pellentesque id justo.',
-            'Aenean suscipit sed velit ac blandit. In nisl odio, aliquet vel velit id, tempus blandit tellus. Vestibulum scelerisque molestie lectus, ut laoreet erat maximus pharetra. In et augue orci. Aliquam bibendum quis ipsum ac dapibus. Vestibulum et elementum quam. Phasellus semper rutrum leo ac tincidunt. In lacus mauris, interdum iaculis mollis in, ultrices et diam.',
-            'Cras elementum, mauris nec convallis aliquam, eros magna bibendum neque, a maximus elit purus eget justo. Phasellus viverra accumsan quam, a blandit sem blandit laoreet. Fusce tempor sollicitudin auctor. Nam vitae ex vehicula, euismod lorem et, mollis orci. Nunc gravida leo ut pulvinar accumsan. Pellentesque sollicitudin justo eget eros hendrerit, quis consectetur mi elementum.',
-            'Nulla id mauris neque. Nam eleifend ullamcorper sagittis. Nullam ac lorem est. Suspendisse ornare aliquet mollis. Sed sollicitudin viverra quam, varius pulvinar libero viverra ut. In magna orci, vehicula non fermentum quis, consequat lacinia nibh. Maecenas ac iaculis turpis.',
-        ]
+        return ['Dummy Bookname'] * top_k
 
 # the UI for searching the vector store
 class UI_search:
@@ -22,6 +17,7 @@ class UI_search:
         self.query = None
         self.result = []
 
+        # TODO: should fill in pinecone api key and index name here
         self.pinecone = PineconeInterface('dummy api key', 'dummy index name')
 
     def UI(self):
@@ -39,8 +35,9 @@ class UI_search:
 
                 st.write('These stories are probably what you want.')
                 sleep(1)
-                for i, story in enumerate(self.result):
-                    st.info(f'#### Story {i+1}\n{story}')
+                for i, book in enumerate(self.result):
+                    # TODO: the following button should take the user to the story content
+                    st.button(f'Story {i+1}: {book}')
 
     def random_placeholder(self) -> str:
         placeholders = [
@@ -50,7 +47,7 @@ class UI_search:
         ]
         return random.choice(placeholders)
 
-    def search(self, keyword: str) -> list:
+    def search(self, keyword: str):
         if keyword == '':
             return
         self.result = self.pinecone.search_vectors(keyword)
