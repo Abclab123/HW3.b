@@ -1,3 +1,25 @@
+# Pinecone Interface
+## Getting started
+Create a [Pinecone](https://www.pinecone.io/) account first. Get your API key and modify `API_KEY` variable in main.py.
+```
+# insert API key here 
+API_KEY = ""
+```
+
+Create conda or venv, and install requirements.txt
+```
+conda create -n cone python=3.11
+conda activate cone 
+pip install -r requirements.txt
+```
+
+## Running the code 
+```
+python main.py
+```
+
+--- 
+
 ```
 # Project Name: GenAI Toolbox
 
@@ -81,10 +103,6 @@ class BooksDB:
     def append(bookname: str, picture_idx: int, content: str):
         pass
 
-    def get_book_content(bookname:str):
-        #return a list of dictionaries [{page : page_number, content:"page 0 text",pic_id: page 0 picture id(int)},{page : page_number, content:"page 1 text",pic_id: page 1 picture id(int)},{page : page_number, content:"page 2 text",pic_id: page 2 picture id(int)},...]
-        pass
-
 ## 10
 
 class PineconeInterface:
@@ -92,12 +110,10 @@ class PineconeInterface:
         pinecone.init(api_key=api_key)
         self.index = pinecone.Index(index_name)
 
-    def insert_vector(self, bookname, book_data):
-        #Do embedding here!
+    def insert_vector(self, vector_id, vector_data):
         self.index.upsert(items=[(vector_id, vector_data)])
 
     def search_vectors(self, query_vector, top_k=5):
-        # Return a list containing top_k bookname
         pass
 
 ## 11: Putting it all together.
