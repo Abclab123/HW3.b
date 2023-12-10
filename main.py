@@ -77,7 +77,8 @@ if __name__ == '__main__':
     query = input()
 
     #need to wait for insert vector to be done, cuz seems like it is asynchronous by default
-    time.sleep(10)
+    print("wait for 60 seconds... to make sure the vector is already inserted")
+    time.sleep(60)
                 
     result = interface.search_vectors(query)
 
