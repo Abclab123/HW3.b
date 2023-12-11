@@ -1,3 +1,25 @@
+## install
+```
+pip install gtts
+```
+## usage
+```
+from gtts_func import TextToSpeech, all_language
+# to list all available language
+
+print(all_language())
+
+# tranfer from text to audio
+
+language="bs" # or other language
+file_path = "./audio.mp3" # or other desired path
+text = "How are you?"
+
+Gtts = TextToSpeech(language)
+Gtts.convert_to_audio(text, file_path)
+
+```
+
 ```
 # Project Name: GenAI Toolbox
 

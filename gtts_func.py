@@ -11,4 +11,3 @@ class TextToSpeech:
 def all_language():
     dictionary = lang.tts_langs()
     return dictionary
-    
