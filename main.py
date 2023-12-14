@@ -72,9 +72,8 @@ class UI_login:
                     st.error('Please Signup')
 
     def login_page(self):
-        st.title("BDS HW3a")
-        st.write("Group 21")
-        st.header("Module 4: UI for login")
+        st.title("BDS HW3b")
+        st.write("Group 14")
         st.write("Welcome to our page. Please Sign Up or Login.")
 
         username = st.text_input('Username')
@@ -110,15 +109,33 @@ class UI_login:
     def welcome_page(self):
         st.title("Welcome!")
         st.write("Welcome to our page.")
+        gen_button = st.button("gen")
+        search_button = st.button("search")
+        if gen_button:
+            st.session_state.page = 'Gen'
+            st.rerun()
+        elif search_button:
+            st.session_state.page = 'Search'
+            st.rerun()
+
+    def gen_page(self):
+        st.title("Gen")
+
+    def search_page(self):
+        st.title("Search")
 
     def show(self):
         if "page" not in st.session_state:
             st.session_state.page = 'Login'
 
-        if st.session_state.page == 'Welcome':
-            self.welcome_page()
-        elif st.session_state.page == 'Login':
+        if st.session_state.page == 'Login':
             self.login_page()
+        elif st.session_state.page == 'Welcome':
+            self.welcome_page()
+        elif st.session_state.page == 'Gen':
+            self.gen_page()
+        elif st.session_state.page == 'Search':
+            self.search_page()
         else:
             self.signup_page()
 
