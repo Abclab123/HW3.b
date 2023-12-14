@@ -1,6 +1,7 @@
 import bcrypt
 import streamlit as st
 from UI_module import StorytellingAppBase
+from UI_search import UI_search
 from ai import OpenAIGenerator, ImageGenerator
 
 salt = bcrypt.gensalt()
@@ -155,6 +156,8 @@ class UI_login:
 
     def search_page(self):
         st.title("Search")
+        ui = UI_search()
+        ui.UI()
 
     def show(self):
         if "page" not in st.session_state:
