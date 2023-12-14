@@ -1,5 +1,5 @@
-import streamlit as st
 import bcrypt
+import streamlit as st
 
 salt = bcrypt.gensalt()
 
@@ -22,26 +22,26 @@ class UI_login:
   def __init__(self):
     pass
 
-  def login(self, usr: str, pwd: str) -> bool:
+  def login(self, usr: str, pwd: str) -> tuple[bool, int, str]:
     for user in valid_users:
-      if (user['name'] == usr):
-        if (user['password'] == bcrypt.hashpw(bytes(pwd, 'utf-8'), salt)):
-          return (True, 200, 'Login Successfully.')
+      if user['name'] == usr:
+        if user['password'] == bcrypt.hashpw(bytes(pwd, 'utf-8'), salt):
+          return True, 200, 'Login Successfully.'
         else:
-          return (False, 401, 'Wrong Password.')
-    return (False, 404, 'User Does Not Exist.')
+          return False, 401, 'Wrong Password.'
+    return False, 404, 'User Does Not Exist.'
 
   def signup(self, usr: str, pwd: str):
     for user in valid_users:
-      if (user['name'] == usr):
-        return (False, 403, 'User Already Exist.')
+      if user['name'] == usr:
+        return False, 403, 'User Already Exist.'
 
     valid_users.append({
       'name': usr,
       'password': bcrypt.hashpw(bytes(pwd, 'utf-8'), salt),
       'group': 'user'
     })
-    return (True, 200, 'Signup Successfully.')
+    return True, 200, 'Signup Successfully.'
   
   def signup_page(self):
     st.title("Please Signup")
